@@ -200,8 +200,11 @@ bindsym $mod+Ctrl+l exec mn-lock
 bindsym $mod+Ctrl+s exec mn-lock && mn-suspend
 bindsym $mod+Ctrl+h exec mn-lock && mn-hibernate
 
-bindcode $mod+72 exec sudo mn-lights inc
-bindcode $mod+71 exec sudo mn-lights dec
+bindcode $mod+72 exec sudo mn-lights screen inc
+bindcode $mod+71 exec sudo mn-lights screen dec
+
+bindcode $mod+70 exec sudo mn-lights kbd inc
+bindcode $mod+69 exec sudo mn-lights kbd dec
 
 bindcode $mod+95 exec pamixer -d 4
 bindcode $mod+96 exec pamixer -i 4
