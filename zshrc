@@ -97,5 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Own additions
+# Own additions ---------------------------------------------
 bindkey -v # Vi mode
+
+# Virtualenv stuff
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
