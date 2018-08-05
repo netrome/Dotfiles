@@ -1,23 +1,29 @@
 general {
         colors = true
         interval = 5
-        color_good = "#aaffdd"
-        color_bad = "#745434"
-        color_degraded = "#343434"
+        color_good = "#24ad56"
+        color_bad = "#a25633"
+        color_degraded = "#2222ff"
 }
 
 order += "ipv6"
-order += "wireless wlan0"
-order += "ethernet eth0"
+order += "wireless wlp1s0"
+#order += "ethernet eth0"
 order += "disk /"
 order += "run_watch DHCP"
-order += "run_watch VPNC"
-order += "path_exists VPN"
+#order += "run_watch VPNC"
+#order += "path_exists VPN"
 order += "battery 0"
+order += "cpu_usage"
 order += "load"
 order += "tztime local"
 
-wireless wlan0 {
+ipv6 {
+    format_up = "ipv6 is up %ip"
+    format_down = "no IPv6"
+}
+
+wireless wlp1s0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
@@ -31,16 +37,17 @@ ethernet eth0 {
 battery 0 {
         format = "%status %percentage %remaining %emptytime"
         format_down = "No battery"
+        low_threshold = 30
+        threshold_type = percentage
         status_chr = "⚡ CHR"
         status_bat = "BAT"
         status_unk = "? UNK"
         status_full = "☻ FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
 }
 
 run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
+        pidfile = "/var/run/dhcpcd*.pid"
 }
 
 run_watch VPNC {
@@ -63,12 +70,11 @@ tztime berlin {
 }
 
 load {
-        format = "%5min"
+        format = "Load: %5min"
 }
 
-cpu_temperature 0 {
-        format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/temp1_input"
+cpu_usage {
+        format = "CPU: %usage "
 }
 
 disk "/" {

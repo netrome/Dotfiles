@@ -1,6 +1,7 @@
 [Configuration]
 ColorForeground=#c5c5c8c8c6c6
 ColorBackground=#1d1d1f1f2121
+FontName=DejaVu sans mono 11
 ColorCursor=#c5c5c8c8c6c6
 ColorBold=#93a1a1
 ColorBoldUseDefault=FALSE
