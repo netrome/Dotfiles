@@ -19,9 +19,7 @@ Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'rust-lang/rust.vim'
 
 " Python
-Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
 
 call plug#end()
 
